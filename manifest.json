@@ -1,0 +1,18 @@
+{
+  "name": "SplitMate — Expense Splitter",
+  "short_name": "SplitMate",
+  "description": "Offline-first expense splitter for groups. No server, no cost.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#cfd9ff",
+  "theme_color": "#7a5cff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%237a5cff' width='100' height='100' rx='20'/><text x='50' y='68' font-size='60' text-anchor='middle' fill='white'>💸</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
