@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7a5cff">
+  <meta name="description" content="Offline-first expense splitter for groups. No server, no cost.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <title>SplitMate — Expense Splitter</title>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>SplitMate</h1>
+      <p class="subtitle">Simple expense splitting, offline</p>
+    </header>
+
+    <section class="card" id="participants-card">
+      <h2>People</h2>
+      <ul id="participants-list" class="list"></ul>
+      <div class="input-group">
+        <input type="text" id="new-participant" placeholder="Add a name" autocomplete="off">
+        <button id="add-participant" class="primary-btn" aria-label="Add participant">Add</button>
+      </div>
+    </section>
+
+    <section class="card" id="expense-card">
+      <h2>New Expense</h2>
+      <div class="input-group">
+        <label for="expense-amount">Amount</label>
+        <input type="number" id="expense-amount" placeholder="0.00" step="0.01" min="0" inputmode="decimal">
+      </div>
+      <div class="input-group">
+        <label for="expense-payer">Paid by</label>
+        <select id="expense-payer"></select>
+      </div>
+      <div class="input-group">
+        <label>Split between</label>
+        <div id="expense-share" class="checkbox-grid" role="group" aria-label="Select who shares this expense"></div>
+      </div>
+      <button id="save-expense" class="primary-btn" disabled>Save Expense</button>
+    </section>
+
+    <section class="card" id="balances-card">
+      <h2>Balances</h2>
+      <div class="table-wrap">
+        <table id="balances-table">
+          <thead>
+            <tr><th>Name</th><th>Net</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="actions">
+        <button id="export-btn" class="secondary-btn">Export / Share</button>
+        <button id="backup-btn" class="secondary-btn">Backup Data</button>
+        <button id="clear-btn" class="danger-btn">Clear All</button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
